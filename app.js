@@ -48,7 +48,7 @@ app.post('/', (req, res) => {
     }
   }
   
-  const = constresponse = requests.post(url, headers=headers, json=data, timeout=30)
+  const constresponse = requests.post(url, headers=headers, json=data, timeout=30)
 
   
   res.status(200).end();
