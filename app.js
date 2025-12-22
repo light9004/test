@@ -1,6 +1,6 @@
 // Import Express.js
 const express = require('express');
-const request = require('requests');
+const requests = require('requests');
 
 // Create an Express app
 const app = express();
