@@ -12,7 +12,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 const verifyToken = process.env.VERIFY_TOKEN;
 const accessToken = process.env.ACCESS_TOKEN
-const whatsappBusinessPhoneId = prcess.env.WHATSAPP_BUSINESS_PHONE_NUMBER_ID
+const whatsappBusinessPhoneId = process.env.WHATSAPP_BUSINESS_PHONE_NUMBER_ID
 
 // Route for GET requests
 app.get('/', (req, res) => {
