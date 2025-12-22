@@ -51,7 +51,7 @@ app.post('/', async (req, res) => {
     body: JSON.stringify(body),
   });
   const data = await response.json();
-  
+  console.log(data);
 
   
   res.status(200).end();
