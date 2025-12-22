@@ -1,6 +1,5 @@
 // Import Express.js
 const express = require('express');
-const requests = require('requests');
 
 // Create an Express app
 const app = express();
@@ -32,21 +31,27 @@ app.post('/', (req, res) => {
   console.log(`\n\nWebhook received ${timestamp}\n`);
   console.log(JSON.stringify(req.body, null, 2));
 
-  const url = `https://graph.facebook.com/v24.0/${whatsappBusinessPhoneId}/messages`
+  const url = `https://graph.facebook.com/v24.0/${whatsappBusinessPhoneId}/messages`;
   const headers = {
-      "Authorization": `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-  }
-  const data = {
-      "messaging_product": "whatsapp",
-      "to": "919891047436",
-      "text": {
-        "preview_url": false,
-        "body": "This is my response"
-    }
-  }
+    "Authorization": `Bearer ${accessToken}`,
+    "Content-Type": "application/json",
+  };
+  const body = {
+    messaging_product: "whatsapp",
+    to: "9891047436",
+    type: "text",
+    text: {
+          "preview_url": false,
+          "body": "Your message content here"
+      }
+  };
+  const response = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+  });
+  const data = await response.json();
   
-  const constresponse = requests.post(url, headers=headers, json=data, timeout=30)
 
   
   res.status(200).end();
